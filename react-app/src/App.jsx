@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import Courses from "./Courses";
 
 const App = () => {
   return (
-    <> 
-    <p>Hello </p>
+    <>
+      <Courses />
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
