@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { getCourses } from "./data/courses";
 
 const Courses = () => {
   const courses = getCourses();
+  const [uniqueCatefories, setUniqueCatefories] = useState([]);
+
+  useEffect(() => {
+    const displayUniqueCategories = () => {
+      let categories = [];
+      courses.map((course) => {
+        categories.push(course.category);
+      });
+      setUniqueCatefories(categories);
+    };
+    displayUniqueCategories();
+  }, []);
 
   return (
     <div data-cy="main-header" className="container">
       <h1 className="center">Course list</h1>
+
       <div>
         {courses.map((course) => {
           return (
